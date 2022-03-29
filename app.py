@@ -38,7 +38,7 @@ if 'middlematcount' not in st.session_state:
     st.session_state.middlematcount = 20
 
 
-@cache
+@st.cache
 def read_data(fn):
     df = pd.read_parquet(fn)
     return df
