@@ -293,8 +293,9 @@ def main():
                         value=14,
                         min_value=2,
                         max_value=19,
-                        help='The material count from pawn to king that is used in end phase game statistics calculations. If material count of last position of the game '
-                              'is this value or less then include such game in the calculation. min=2, max=19, default=14'
+                        help='The material count from pawn to king that is used in end phase game statistics calculations. '
+                             'If material count of last position of the game '
+                             'is this value or less then include such game in the calculation. min=2, max=19, default=14'
                     )
                 with c2:
                     v2 = st.selectbox(label="Select Combo Name", index=st.session_state.combo_selection2, options=options, key=2,
@@ -304,8 +305,9 @@ def main():
                         value=20,
                         min_value=20,
                         max_value=36,
-                        help='The material count from pawn to king that is used in middle phase game statistics calculations. If material count of last position of the game '
-                              'is this value or more then include such game in the calculation. min=20, max=36, default=20'
+                        help='The material count from pawn to king that is used in middle phase game statistics calculations. '
+                             'If material count of last position of the game '
+                             'is this value or more then include such game in the calculation. min=20, max=36, default=20'
                     )                    
                 start = st.form_submit_button(label='Generate')
 
