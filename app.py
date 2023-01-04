@@ -1,16 +1,4 @@
-"""
-app.py
-
-requirements.txt:
-    streamlit==1.8.0
-    streamlit-option-menu==0.3.2
-    plotly==5.6.0
-    parquet==1.3.1
-    click==8.0.4
-
-Note:
-To fix the bug on click use the following module:
-click==8.0.4
+"""The main streamlit script
 """
 
 
@@ -26,22 +14,6 @@ st.set_page_config(
     layout="wide",
 )
 
-st.markdown(
-"""
-<style>
-.css-qrbaxs {
-    color: SlateGray;
-    font-weight: normal;
-    font-style: italic;
-}
-.st-br {
-    font-size: 16px;
-}
-</style>
-""",
-    unsafe_allow_html=True,
-)
-
 
 if 'combo_selection1' not in st.session_state:
     st.session_state.combo_selection1 = 0
@@ -55,7 +27,6 @@ if 'middlematcount' not in st.session_state:
 
 @st.cache
 def read_data(fn):
-    # df = pd.read_parquet(fn)
     df = pd.read_csv(fn)
     return df
 
