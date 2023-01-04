@@ -286,28 +286,40 @@ def main():
             with st.form(key='form'):
                 c1, c2 = st.columns(2)
                 with c1:
-                    v1 = st.selectbox(label="Select Combo Name", index=st.session_state.combo_selection1, options=options, key=1,
-                                      help='Select piece combination for comparison.')
+                    v1 = st.selectbox(
+                        label="Select Combo Name",
+                        index=st.session_state.combo_selection1,
+                        options=options, key=1,
+                        help='Select piece combination for comparison.')
                     st.session_state.endingmatcount = st.number_input(
                         label='End phase piece count',
                         value=14,
                         min_value=2,
                         max_value=19,
-                        help='The material count from pawn to king that is used in end phase game statistics calculations. '
+                        help='The material count from pawn to king that is '
+                             'used in end phase game statistics calculations. '
                              'If material count of last position of the game '
-                             'is this value or less then include such game in the calculation. min=2, max=19, default=14'
+                             'is this value or less then include such game in '
+                             'the calculation. min=2, max=19, default=14'
                     )
                 with c2:
-                    v2 = st.selectbox(label="Select Combo Name", index=st.session_state.combo_selection2, options=options, key=2,
-                                      help='Select piece combination for comparison.')
+                    v2 = st.selectbox(
+                        label="Select Combo Name",
+                        index=st.session_state.combo_selection2,
+                        options=options,
+                        key=2,
+                        help='Select piece combination for comparison.')
                     st.session_state.middlematcount = st.number_input(
                         label='Middle phase piece count',
                         value=20,
                         min_value=20,
                         max_value=36,
-                        help='The material count from pawn to king that is used in middle phase game statistics calculations. '
-                             'If material count of last position of the game '
-                             'is this value or more then include such game in the calculation. min=20, max=36, default=20'
+                        help='The material count from pawn to king that '
+                             'is used in middle phase game statistics '
+                             'calculations. If material count of last '
+                             'position of the game is this value or more '
+                             'then include such game in the calculation. '
+                             'min=20, max=36, default=20'
                     )                    
                 start = st.form_submit_button(label='Generate')
 
@@ -321,7 +333,7 @@ def main():
                 win_loss_draw_stats(df, v2)
 
         with st.expander(label='OTHER INFORMATION'):
-            st.markdown(f'''
+            st.markdown('''
             * The games are generated using the [stockfish musketeer](https://github.com/ianfab/Musketeer-Stockfish) engine run at TC 30s+100ms.
             ''')
 
