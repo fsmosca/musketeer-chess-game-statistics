@@ -6,6 +6,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 from modules.utility import win_loss_draw_stats
+from modules.getdeta import get_all
 
 
 st.set_page_config(
@@ -26,9 +27,8 @@ if 'middlematcount' not in st.session_state:
 
 
 @st.cache
-def read_data(fn):
-    df = pd.read_csv(fn)
-    return df
+def read_data():
+    return get_all()
 
 
 def main():
@@ -83,7 +83,7 @@ def main():
 
 
     elif choose == "Game Statistics":
-        df = read_data('musketeer_chess_data.csv')
+        df = read_data()
 
         st.markdown(""" <style> .font {
         font-size:35px ; font-family: 'Cooper Black'; color: #FF9633;} 
